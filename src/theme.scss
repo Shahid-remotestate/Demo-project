@@ -1,0 +1,163 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;600;700&display=swap');
+
+
+// typography
+
+$fontConfig: (
+  display-4: mat.define-typography-level(112px, 112px, 500, 'Montserrat', -0.0134em),
+  display-3: mat.define-typography-level(56px, 56px, 500, 'Montserrat', -0.0089em),
+  display-2: mat.define-typography-level(45px, 48px, 500, 'Montserrat', 0.0000em),
+  display-1: mat.define-typography-level(34px, 40px, 500, 'Montserrat', 0.0074em),
+  headline: mat.define-typography-level(48px, 48px, 500, 'Montserrat', 0.0000em),
+  title: mat.define-typography-level(32px, 32px, 500, 'Montserrat', 0.0075em),
+  subheading-2: mat.define-typography-level(24px, 24px, 500, 'Montserrat', 0.0094em),
+  subheading-1: mat.define-typography-level(22px, 22px, 500, 'Montserrat', 0.0067em),
+  body-2: mat.define-typography-level(14px, 24px, 500, 'Montserrat', 0.0179em),
+  body-1: mat.define-typography-level(12px, 18px, 500, 'Montserrat', 0.0179em),
+  button: mat.define-typography-level(16px, 16px, 600, 'Montserrat', 0.0893em),
+  caption: mat.define-typography-level(12px, 20px, 500, 'Montserrat', 0.0333em),
+  input: mat.define-typography-level(inherit, 1.125, 500, 'Montserrat', 1.5px)
+);
+
+@include mat.core($fontConfig);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$md-primary: (
+  50 : #f3e9ff,
+  100 : #e1c8ff,
+  200 : #cda4ff,
+  300 : #b980ff,
+  400 : #aa64ff,
+  500 : #9b49ff,
+  600 : #9342ff,
+  700 : #8939ff,
+  800 : #7f31ff,
+  900 : #6d21ff,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #dfd0ff,
+  A700 : #cdb7ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+$md-accent: (
+  50 : #ffffe0,
+  100 : #ffffb3,
+  200 : #ffff80,
+  300 : #ffff4d,
+  400 : #ffff26,
+  500 : #ffff00,
+  600 : #ffff00,
+  700 : #ffff00,
+  800 : #ffff00,
+  900 : #ffff00,
+  A100 : #ffffff,
+  A200 : #fffff2,
+  A400 : #ffffbf,
+  A700 : #ffffa6,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+$md-warn: (
+  50 : #fdebeb,
+  100 : #f9cdcd,
+  200 : #f5abab,
+  300 : #f18989,
+  400 : #ee7070,
+  500 : #eb5757,
+  600 : #e94f4f,
+  700 : #e54646,
+  800 : #e23c3c,
+  900 : #dd2c2c,
+  A100 : #ffffff,
+  A200 : #ffeaea,
+  A400 : #ffb7b7,
+  A700 : #ff9d9d,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$demo-project-primary: mat.define-palette($md-primary);
+$demo-project-accent: mat.define-palette($md-accent);
+
+/* For use in src/lib/core/theming/_palette.scss */
+
+
+
+
+// The warn palette is optional (defaults to red).
+$demo-project-warn: mat.define-palette($md-warn);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$demo-project-theme: mat.define-light-theme((
+  color: (
+    primary: $demo-project-primary,
+    accent: $demo-project-accent,
+    warn: $demo-project-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($demo-project-theme);
+
+body{
+  background: linear-gradient(299.18deg, #002022 0%, #090024 29.98%, #006A71 125.13%)
+}
