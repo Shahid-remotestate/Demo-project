@@ -5,12 +5,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  //primary color
+  --primary-white: #ffffff;
+  --primary-viking: #41A8BB;
+
+
+  //primary gradient color
+  --primary-gradient-color: linear-gradient(299.18deg, #002022 0%, #090024 29.98%, #006A71 125.13%);
+
+  //secondary gradient color
+  --secondary-glass-effect-color: linear-gradient(90.8deg, rgba(22, 21, 21, 0.53) 0.17%, rgba(70, 70, 70, 0.38) 90.59%)
+}
+
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: var(--primary-white)}
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.spacer {
+  flex: 1 1 auto;
 }
